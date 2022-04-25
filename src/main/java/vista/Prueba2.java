@@ -175,7 +175,7 @@ public class Prueba2 extends javax.swing.JFrame {
 
             } else {
 
-                respuesta = JOptionPane.showConfirmDialog(null, "Esta seguro que quiere eliminar este uSuario ?");
+                respuesta = JOptionPane.showConfirmDialog(null, "¿ Esta seguro que quiere eliminar este usuario ?");
 
                 if (respuesta == JOptionPane.YES_OPTION) {
 
@@ -185,7 +185,7 @@ public class Prueba2 extends javax.swing.JFrame {
 
                 } else {
 
-                    JOptionPane.showMessageDialog(null, "No eliminaste ningun usuario");
+                    JOptionPane.showMessageDialog(null, "No se elimino ningun usuario");
 
                 }
             }
@@ -202,7 +202,6 @@ public class Prueba2 extends javax.swing.JFrame {
         Prueba p = new Prueba();
         p.setVisible(true);
         p.setLocationRelativeTo(null);
-        
 
 
     }//GEN-LAST:event_buttonInsertActionPerformed
@@ -257,7 +256,6 @@ public class Prueba2 extends javax.swing.JFrame {
         for (Persona persona : personas) {
 
 //            System.out.println("persona = " + persona);
-
             data[0] = String.valueOf(persona.getIdPersona());
             data[1] = persona.getNombre();
             data[2] = persona.getApellido();
