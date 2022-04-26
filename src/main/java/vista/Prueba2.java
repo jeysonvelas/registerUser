@@ -2,9 +2,14 @@ package vista;
 
 import datos.PersonaDAO;
 import domain.Persona;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 public class Prueba2 extends javax.swing.JFrame {
 
@@ -14,7 +19,7 @@ public class Prueba2 extends javax.swing.JFrame {
     public Prueba2() {
         initComponents();
         setLocationRelativeTo(null);
-        mostrarDatos(0, null);
+        mostrarDatos();
 
     }
 
@@ -31,11 +36,11 @@ public class Prueba2 extends javax.swing.JFrame {
         tablaPersonas = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         textSearch = new javax.swing.JTextField();
-        buttonSearch = new javax.swing.JButton();
         comboSearch = new javax.swing.JComboBox<>();
         buttonUpdate = new javax.swing.JButton();
         buttonDelete = new javax.swing.JButton();
         buttonInsert = new javax.swing.JButton();
+        buttonReload = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,14 +56,13 @@ public class Prueba2 extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscar por:"));
 
-        buttonSearch.setText("Filtrar");
-        buttonSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSearchActionPerformed(evt);
+        textSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textSearchKeyTyped(evt);
             }
         });
 
-        comboSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mostrar todos", "Nombre", "Email" }));
+        comboSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Apellido", "Email" }));
 
         buttonUpdate.setText("Actualizar Datos");
         buttonUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -81,6 +85,13 @@ public class Prueba2 extends javax.swing.JFrame {
             }
         });
 
+        buttonReload.setIcon(new javax.swing.ImageIcon("C:\\Users\\jeyson.velasquez\\Pictures\\reload.png")); // NOI18N
+        buttonReload.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonReloadActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -90,27 +101,28 @@ public class Prueba2 extends javax.swing.JFrame {
                 .addComponent(comboSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(textSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonReload, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(buttonUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(buttonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonSearch)
-                    .addComponent(comboSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonUpdate)
-                    .addComponent(buttonDelete)
-                    .addComponent(buttonInsert))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(textSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonUpdate)
+                        .addComponent(buttonDelete)
+                        .addComponent(buttonInsert))
+                    .addComponent(buttonReload, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -121,7 +133,7 @@ public class Prueba2 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 893, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -138,22 +150,13 @@ public class Prueba2 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
-
-        int opcion = comboSearch.getSelectedIndex();
-        String valorencontrado = textSearch.getText();
-
-        mostrarDatos(opcion, valorencontrado);
-
-
-    }//GEN-LAST:event_buttonSearchActionPerformed
-
     private void buttonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateActionPerformed
 
         int fila = tablaPersonas.getSelectedRow();
 
         if (fila == -1) {
-
+            
+            mostrarDatos();
             JOptionPane.showMessageDialog(null, "Por favor primero selecciona y modifica las celdas que deseas actualizar");
 
         } else {
@@ -170,9 +173,10 @@ public class Prueba2 extends javax.swing.JFrame {
         try {
 
             if (fila == -1) {
-
+                
+                
                 JOptionPane.showMessageDialog(null, "Por favor primero selecciona el usuario a eliminar");
-
+                
             } else {
 
                 respuesta = JOptionPane.showConfirmDialog(null, "¿ Esta seguro que quiere eliminar este usuario ?");
@@ -180,7 +184,7 @@ public class Prueba2 extends javax.swing.JFrame {
                 if (respuesta == JOptionPane.YES_OPTION) {
 
                     eliminarRegistros();
-                    mostrarDatos(0, null);
+                    mostrarDatos();
                     JOptionPane.showMessageDialog(null, "El usuario ha sido eliminado exitosamente");
 
                 } else {
@@ -206,9 +210,53 @@ public class Prueba2 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_buttonInsertActionPerformed
 
-    public void mostrarDatos(int opc, String valor) {
+    TableRowSorter trs = null;
 
-        String codSql;
+
+    private void textSearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textSearchKeyTyped
+
+        textSearch.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+                int opcion = comboSearch.getSelectedIndex();
+
+                if (opcion == 0) {
+
+                    trs.setRowFilter(RowFilter.regexFilter("(?i)" + textSearch.getText(), 1));
+
+                } else {
+
+                    if (opcion == 1) {
+
+                        trs.setRowFilter(RowFilter.regexFilter("(?i)" + textSearch.getText(), 2));
+
+                    } else {
+
+                        trs.setRowFilter(RowFilter.regexFilter("(?i)" + textSearch.getText(), 3));
+                    }
+
+                }
+
+            }
+
+        });
+
+        trs = new TableRowSorter(tablaPersonas.getModel());
+        tablaPersonas.setRowSorter(trs);
+
+
+    }//GEN-LAST:event_textSearchKeyTyped
+
+    private void buttonReloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonReloadActionPerformed
+       
+        mostrarDatos();
+        
+    }//GEN-LAST:event_buttonReloadActionPerformed
+
+    public void mostrarDatos() {
+
+        String codSql = "SELECT * FROM persona";
 
         DefaultTableModel tPersona = new DefaultTableModel();
 
@@ -219,32 +267,6 @@ public class Prueba2 extends javax.swing.JFrame {
         tPersona.addColumn("Telefono");
 
         tablaPersonas.setModel(tPersona);
-
-        if (opc == 0 && valor == null) {
-
-            codSql = "SELECT * FROM persona";
-
-        } else {
-
-            if (opc == 1 && valor != null) {
-
-                codSql = "SELECT * FROM persona WHERE nombre = '" + valor + "' ";
-
-            } else {
-
-                if (opc == 2 && valor != null) {
-
-                    codSql = "SELECT * FROM persona WHERE email = '" + valor + "' ";
-
-                } else {
-
-                    codSql = "SELECT * FROM persona";
-
-                }
-
-            }
-
-        }
 
         String[] data = new String[5];
         PersonaDAO personaDAO = new PersonaDAO();
@@ -283,7 +305,7 @@ public class Prueba2 extends javax.swing.JFrame {
         Persona persona = new Persona(id, nombre, apellido, email, telefono);
 
         personaDAO.modificarDatos(persona);
-        mostrarDatos(0, null);
+        mostrarDatos();
 
     }
 
@@ -334,7 +356,7 @@ public class Prueba2 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonDelete;
     private javax.swing.JButton buttonInsert;
-    private javax.swing.JButton buttonSearch;
+    private javax.swing.JButton buttonReload;
     private javax.swing.JButton buttonUpdate;
     private javax.swing.JComboBox<String> comboSearch;
     private javax.swing.JPanel jPanel1;

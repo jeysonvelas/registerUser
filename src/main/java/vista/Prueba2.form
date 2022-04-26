@@ -26,7 +26,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane2" pref="893" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" max="32767" attributes="0"/>
                   <Component id="jPanel1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -85,29 +85,31 @@
                   <Component id="comboSearch" min="-2" pref="147" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Component id="textSearch" min="-2" pref="130" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="buttonSearch" max="32767" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="buttonReload" min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="buttonInsert" min="-2" pref="142" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="buttonUpdate" min="-2" pref="144" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="buttonDelete" min="-2" pref="116" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="textSearch" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="buttonSearch" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="comboSearch" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="buttonUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="buttonDelete" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="buttonInsert" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="textSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonInsert" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="buttonReload" alignment="0" min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="19" max="32767" attributes="0"/>
               </Group>
@@ -116,21 +118,16 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JTextField" name="textSearch">
-        </Component>
-        <Component class="javax.swing.JButton" name="buttonSearch">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Filtrar"/>
-          </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSearchActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textSearchKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="comboSearch">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
-                <StringItem index="0" value="Mostrar todos"/>
-                <StringItem index="1" value="Nombre"/>
+                <StringItem index="0" value="Nombre"/>
+                <StringItem index="1" value="Apellido"/>
                 <StringItem index="2" value="Email"/>
               </StringArray>
             </Property>
@@ -161,6 +158,16 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonInsertActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="buttonReload">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\jeyson.velasquez\Pictures\reload.png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonReloadActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
