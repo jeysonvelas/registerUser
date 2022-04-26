@@ -40,7 +40,7 @@ public class Prueba2 extends javax.swing.JFrame {
         buttonUpdate = new javax.swing.JButton();
         buttonDelete = new javax.swing.JButton();
         buttonInsert = new javax.swing.JButton();
-        buttonReload = new javax.swing.JButton();
+        buttonRefresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,10 +85,10 @@ public class Prueba2 extends javax.swing.JFrame {
             }
         });
 
-        buttonReload.setIcon(new javax.swing.ImageIcon("C:\\Users\\jeyson.velasquez\\Pictures\\reload.png")); // NOI18N
-        buttonReload.addActionListener(new java.awt.event.ActionListener() {
+        buttonRefresh.setIcon(new javax.swing.ImageIcon("C:\\Users\\jeyson.velasquez\\Pictures\\reload.png")); // NOI18N
+        buttonRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonReloadActionPerformed(evt);
+                buttonRefreshActionPerformed(evt);
             }
         });
 
@@ -102,7 +102,7 @@ public class Prueba2 extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(textSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonReload, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -122,7 +122,7 @@ public class Prueba2 extends javax.swing.JFrame {
                         .addComponent(buttonUpdate)
                         .addComponent(buttonDelete)
                         .addComponent(buttonInsert))
-                    .addComponent(buttonReload, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -248,11 +248,11 @@ public class Prueba2 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_textSearchKeyTyped
 
-    private void buttonReloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonReloadActionPerformed
+    private void buttonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefreshActionPerformed
        
         mostrarDatos();
         
-    }//GEN-LAST:event_buttonReloadActionPerformed
+    }//GEN-LAST:event_buttonRefreshActionPerformed
 
     public void mostrarDatos() {
 
@@ -356,7 +356,7 @@ public class Prueba2 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonDelete;
     private javax.swing.JButton buttonInsert;
-    private javax.swing.JButton buttonReload;
+    private javax.swing.JButton buttonRefresh;
     private javax.swing.JButton buttonUpdate;
     private javax.swing.JComboBox<String> comboSearch;
     private javax.swing.JPanel jPanel1;
