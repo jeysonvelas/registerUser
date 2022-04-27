@@ -155,7 +155,7 @@ public class MainWindows extends javax.swing.JFrame {
         int fila = tablaPersonas.getSelectedRow();
 
         if (fila == -1) {
-            
+
             mostrarDatos();
             JOptionPane.showMessageDialog(null, "Por favor primero selecciona y modifica las celdas que deseas actualizar");
 
@@ -173,10 +173,9 @@ public class MainWindows extends javax.swing.JFrame {
         try {
 
             if (fila == -1) {
-                
-                
+
                 JOptionPane.showMessageDialog(null, "Por favor primero selecciona el usuario a eliminar");
-                
+
             } else {
 
                 respuesta = JOptionPane.showConfirmDialog(null, "¿ Esta seguro que quiere eliminar este usuario ?");
@@ -249,14 +248,12 @@ public class MainWindows extends javax.swing.JFrame {
     }//GEN-LAST:event_textSearchKeyTyped
 
     private void buttonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefreshActionPerformed
-       
+
         mostrarDatos();
-        
+
     }//GEN-LAST:event_buttonRefreshActionPerformed
 
     public void mostrarDatos() {
-
-        String codSql = "SELECT * FROM persona";
 
         DefaultTableModel tPersona = new DefaultTableModel();
 
@@ -272,7 +269,7 @@ public class MainWindows extends javax.swing.JFrame {
         PersonaDAO personaDAO = new PersonaDAO();
 
         //Se llama al metodo listarDatos y se guarda la informacion en una lista de tipo Persona
-        List<Persona> personas = personaDAO.listarDatos(codSql);
+        List<Persona> personas = personaDAO.listarDatos();
 
         //forEach normal
         for (Persona persona : personas) {
