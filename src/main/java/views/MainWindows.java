@@ -1,4 +1,4 @@
-package vista;
+package views;
 
 import datos.PersonaDAO;
 import domain.Persona;
