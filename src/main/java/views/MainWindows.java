@@ -13,9 +13,8 @@ import javax.swing.table.TableRowSorter;
 
 public class MainWindows extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Prueba2
-     */
+    TableRowSorter trs = null;
+
     public MainWindows() {
         initComponents();
         setLocationRelativeTo(null);
@@ -208,8 +207,6 @@ public class MainWindows extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_buttonInsertActionPerformed
-
-    TableRowSorter trs = null;
 
 
     private void textSearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textSearchKeyTyped
