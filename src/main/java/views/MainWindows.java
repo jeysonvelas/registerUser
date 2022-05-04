@@ -7,8 +7,7 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
+import javax.swing.table.*;
 import javax.swing.table.TableRowSorter;
 
 public class MainWindows extends javax.swing.JFrame {
@@ -31,6 +30,7 @@ public class MainWindows extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSpinner1 = new javax.swing.JSpinner();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaPersonas = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -70,7 +70,7 @@ public class MainWindows extends javax.swing.JFrame {
             }
         });
 
-        buttonDelete.setText("Elminar");
+        buttonDelete.setText("Elminar Usuario");
         buttonDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonDeleteActionPerformed(evt);
@@ -107,8 +107,8 @@ public class MainWindows extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(buttonUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(buttonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(buttonDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,6 +212,7 @@ public class MainWindows extends javax.swing.JFrame {
     private void textSearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textSearchKeyTyped
 
         textSearch.addKeyListener(new KeyAdapter() {
+            
             @Override
             public void keyReleased(KeyEvent e) {
 
@@ -271,7 +272,6 @@ public class MainWindows extends javax.swing.JFrame {
         //forEach normal
         for (Persona persona : personas) {
 
-//            System.out.println("persona = " + persona);
             data[0] = String.valueOf(persona.getIdPersona());
             data[1] = persona.getNombre();
             data[2] = persona.getApellido();
@@ -362,6 +362,7 @@ public class MainWindows extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboSearch;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTable tablaPersonas;
     private javax.swing.JTextField textSearch;
     // End of variables declaration//GEN-END:variables
