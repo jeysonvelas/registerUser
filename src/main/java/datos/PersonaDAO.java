@@ -9,7 +9,7 @@ public class PersonaDAO {
     private static final String SQL_SELECT = "SELECT * FROM persona";
     private static final String SQL_INSERT = "INSERT INTO persona (nombre, apellido, email, telefono) VALUES (?, ?, ?, ?)";
     private static final String SQL_UPDATE = "UPDATE persona SET nombre = ?, apellido = ?, email = ?, telefono = ? WHERE id_persona = ? ";
-    private static final String SQL_DELETE = "DELETE from persona WHERE id_persona = ? ";
+    private static final String SQL_DELETE = "DELETE persona WHERE id_persona = ? ";
 
     //Metodo para Listar registros de una Tabla
     public List<Persona> listarDatos() {

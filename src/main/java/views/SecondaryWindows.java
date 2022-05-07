@@ -44,6 +44,7 @@ public class SecondaryWindows extends javax.swing.JFrame {
             }
         });
 
+        buttonOk.setBackground(new java.awt.Color(60, 123, 242));
         buttonOk.setText("Guardar");
         buttonOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
